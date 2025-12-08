@@ -20,3 +20,7 @@ Efte att jag hade gjort klart min insertion-sort så gjorde jag även en selecti
 Jag gjorde sen ett Gen class och gjorde den första metod som generar en lista me slumpässiga tal beroende på olika paramterar användaren matar in.
 
 Jag testade sedan alla 3 algorithmer på 100 tal och alla fungerade.
+
+---
+### DAG 3 | 08-12-2025
+Idag så fixade jag så att jag min "test" så att jag kör igenom alla sortering algoritmer 3 gånger per typ av genereringstyp och sedan tar medelvärdet och skriver ut allt snyggt i en tabell. Det tog så lång tid eftersom jag skulle fixa så det var enkelt att lägga till fler algoritmer och genertaionstyper. Jag gjorde så de flesta delarna av testen och utskriften var dynamiska.
