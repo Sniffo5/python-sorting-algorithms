@@ -2,7 +2,7 @@ from algorithms import Algorithms
 from list_generation import Gen
 from time import time
 import math
-length = 1000
+length = 10000
 unique_elements = 100
 random_elements = 100
 
@@ -15,7 +15,7 @@ for i in range(len(generation_methods)):
     sorting_times = [[],[],[],[]]
     unsorted_data = generation_methods[i]
     for j in range(len(sorting_methods)):
-        for k in range(5):
+        for k in range(3):
             start_time = time()
             sorting_methods[j](unsorted_data[:])
             end_time = time()
