@@ -4,7 +4,7 @@ class Algorithms:
         sorted_data = unsorted_data
         
         for i in range(len(sorted_data)-1):
-            for j in range(len(sorted_data)-1):
+            for j in range(len(sorted_data)-1-i):
                 if sorted_data[j] > sorted_data[j+1]:
                     temp = sorted_data[j]
                     sorted_data[j] = sorted_data[j+1]
