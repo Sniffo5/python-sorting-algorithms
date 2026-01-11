@@ -7,12 +7,12 @@ unique_elements = 100
 random_elements = 100
 
 generation_methods = [Gen.random(length),Gen.random_narrow(length,unique_elements),Gen.random_semi(length, random_elements ),Gen.sorted_reverse(length)]
-sorting_methods = [Algorithms.bubble_sort,Algorithms.selection_sort,Algorithms.insertion_sort, sorted]
+sorting_methods = [Algorithms.bubble_sort,Algorithms.selection_sort,Algorithms.insertion_sort,Algorithms.merge_sort, sorted]
 
 sorting_overview = []
 
 for i in range(len(generation_methods)):
-    sorting_times = [[],[],[],[]]
+    sorting_times = [[],[],[],[],[]]
     unsorted_data = generation_methods[i]
     for j in range(len(sorting_methods)):
         for k in range(3):
@@ -23,7 +23,7 @@ for i in range(len(generation_methods)):
         sorting_times[j] = sum(sorting_times[j])/len(sorting_times[j])
     sorting_overview.append(sorting_times)
     
-sorting_titles = ["Bubble Sort", "Selection Sort", "Insertion Sort", "Python Sort"]
+sorting_titles = ["Bubble Sort", "Selection Sort", "Insertion Sort","Merge Sort", "Python Sort"]
 generation_titles = ["Random", "Few Unique", "Semi Sorted", "Sorted Reverse"]
 
 table = "\t\t\t"
@@ -38,7 +38,7 @@ for i in range(len(generation_titles)):
 for i in range(len(sorting_titles)):
     table += "\n"
     table += sorting_titles[i]
-    for j in range(len(sorting_overview[i])):
+    for j in range(len(sorting_overview)):
         table += "\t\t"
         table += str(sorting_overview[j][i])
         
