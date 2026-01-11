@@ -23,7 +23,11 @@ Jag testade sedan alla 3 algorithmer på 100 tal och alla fungerade.
 
 ---
 ### DAG 3 | 08-12-2025
-Idag så fixade jag så att jag min "test" så att jag kör igenom alla sortering algoritmer 3 gånger per typ av genereringstyp och sedan tar medelvärdet och skriver ut allt snyggt i en tabell. Det tog så lång tid eftersom jag skulle fixa så det var enkelt att lägga till fler algoritmer och genertaionstyper. Jag gjorde så de flesta delarna av testen och utskriften var dynamiska. Jag fixade även min selection sort då jag märkte jag hade glömt -i i en av looparna.
+Idag så fixade jag så att jag min "test" så att jag kör igenom alla sortering algoritmer 3 gånger per typ av genereringstyp och sedan tar medelvärdet och skriver ut allt snyggt i en tabell. Det tog så lång tid eftersom jag skulle fixa så det var enkelt att lägga till fler algoritmer och genertaionstyper. Jag gjorde så de flesta delarna av testen och utskriften var dynamiska. Jag fixade även min selection sort då jag märkte jag hade glömt -i i en av looparna. näst på tur blri att skriva analysen sedan göra merge sort efteråt ifall jag har mer tid.
+
+---
+### DAG 4 | 11-01-2025
+Idag skrev jag klart min analys och gjorde min merge-sort. Merge-sort var riktigt klurigt. Jag hade många problem där med bland annat att repptera funktionerna tillräckligt många gåner samt att lägga till talen i slutet rätt efter jag har sorterat men ändå har tal kvar. jag körde även for loopar med if statser inuti men bytte ut det til while loppar för att förenkla koden men samt får den att fungera i alla situationer. Det var väldigt spänande att få ta sig ann en soppas svår alogirtm och det tog många timmar av att jklura för att få den att fungera.
 
 ---
 ---
@@ -90,3 +94,21 @@ Alla tre av de sorteringsalgoritmerna jag gjorde har samma algoritmisk komplexit
 Pythons inbyggda sorteringslgoritm är mycket snabbare. För mitt orginella test på 10000 element så var den mellan 67 till 71725 gånger snabbare än de jag själv kodade. Jämfört med bubble sort på en omvänd lista så är den signifikant snabbare **0.04 ms** kontra **2870 ms**. Det är på grund av hur den är uppbyggd, pythons egna sorteringsalgoritm kör timesort som kör en blanding av olika algoritmer. Den letar först upp redan delvis sorterade sekvenser i listan och kör insertion sort på dem delarna och sedan kör den merge sort på alltihop. På så sätt lyckas algoritmen får en betydligt mindre komplexitet som i värsta fall bara blir *O*(n log n).
 
 
+# Frågor om merge sort
+
+## 1. Är Merge Sort snabbare än dina andra algoritmer? 
+
+||Random| Few Unique | Semi Sorted | Sorted Reverse |
+|-|-|-|-|--|
+|**Bubble Sort**|2214.3 ms|2027.2 ms| 1170.9 ms|2690.3 ms|
+|**Selection Sort**|1002.2 ms| 988.7 ms|832.2 ms|914.8 ms|
+|**Insertion Sort**|943.9 ms|918.8 ms|12.5 ms|1811.8 ms|
+|**Merge Sort**|9.6 ms|9.45 ms|8.3 ms| 7.75 ms|
+|**Python Sort**| 0.68 ms| 0.54 ms|0.069 ms| 0.03 ms|
+
+Merge sort är snabbbare i alla fall, dock har jag i andra tester regelbundet fått att Insertion Sort är snabbare på semi sorted data, vilket hade förklarat varför python sort delvis anvdänder sig gav insertion sort. Dock är Pythons inbyggda fortfarande milsvis snabbare, det är då på grund av att den anpassar algoritm-användningen för datan och på så sätt lyckas sortera datan betydligt snabbare.
+
+
+## 2. Varför kräver Merge Sort extra minne? 
+
+Merge sort kräver extra minne då den hela tiden skapar nya listor medans en algoritm som bubble sort inte gör det utan använder samma lista hela vägen genom.
