@@ -28,30 +28,65 @@ Idag så fixade jag så att jag min "test" så att jag kör igenom alla sorterin
 ---
 ---
 
+# Analys
 
 ||Random| Few Unique | Semi Sorted | Sorted Reverse |
-|------------|------|------------|-------------|----------------|
-|**Bubble Sort**|5040.4 ms|4518.5 ms|2922.9 ms|6371.2 ms|
-|**Selection Sort**|2405.2 ms|2303.7 ms|1917.2 ms|2154.8 ms|
-|**Insertion Sort**|2204.4 ms|1980.5 ms|46.8 ms|4146.8 ms|
-|**Python Sort**|1.2 ms|0.9 ms|0.4 ms|0.1 ms|
+|-|-|-|-|--|
+|**Bubble Sort**|2315.9 ms|2106.3 ms|1224.1 ms|2869.5 ms|
+|**Selection Sort**|1013.0 ms|1000.3 ms|851.6 ms|938.5 ms|
+|**Insertion Sort**|1002.8 ms|968.7 ms|13.4 ms|1897.0 ms|
+|**Python Sort**| 0.7 ms|0.5 ms|0.2 ms|0.04 ms|
 
-*10000 tal, 100 unika tal, 100 slumpmässiga tal, tal mellan 1 och 20000000*
+***10000 tal, 100 unika tal, 100 slumpmässiga tal, tal mellan 1 och 20000000***\
+***CPU:** 9800x3d, **RAM:** 16 GB 6000 MHZ CL30 DDR5*
 
-# Analys
-### 1. Vilken alogritm var snabbast i de olika fallen?
+---
 
-För helt slumpmässiga tal så var insertion sort snabbast, för endast några unika tal så var insertion sort också snabbast, för sorterad data med några felplacerade tal så var insertion sort snabbast med stort marginal, för data som är omvänt så är selection sort snabbast.
+## 1. Vilken alogritm var snabbast i de olika fallen?
 
-### 2. Varför fungerar Insertion Sort bra på nästan sorterad data?
+För helt slumpmässiga tal så var **insertion** sort snabbast (**1003 ms**), för endast några unika tal så var **insertion** sort också snabbast (**969 ms**), för sorterad data med några felplacerade tal så var **insertion** sort snabbast med stor marginal (**13.4 ms**), för omvänd ordning så var **selection** sort snabbast (**939 ms**).
+
+## 2. Varför fungerar Insertion Sort bra på nästan sorterad data?
 
 Insertion sort fungerar bra på nästan sorterad data då algoritmen hittar rätt position för varje osorterat element. Ifall listan är nästan helt sorterad så skippar den allt fram till där den är osorterad och sedan stoppar det osorterade talet i rätt position. På så sätt minskas onödiga förflyttnigar av tal då den enbart tar de som är i fel position och stoppar dem rätt. Till skillnad från t.ex. en bubble sort som flyttar alla tal oavsett om de är i ordning eller inte.
 
-### 3. Varför ändras inte tiden för Selection Sort så mycket beroende på datan?
+## 3. Varför ändras inte tiden för Selection Sort så mycket beroende på datan?
 
 Selection sort kommer ta ungefär lika lång tid oavsett hur datan ser ut. Det är på grund av att algoritmen går ut på att en för en bygga upp listan genom att hitta nästa tal. Den går genom alla tal hittar den som är näst på tur och stoppar den i slutet av den nuvarande sorterade delen. Algoritmen gör alltid samma antal jämföresler oavsett hur datan ser ut. Det är bara olika många byten som sker som ger lite skillnad i tiden, men då den jämför samma antal gånger alltid så blir tiden väldigt lik.
 
-### 4. Vilket fall var svårast för Bubble Sort?
+## 4. Vilket fall var svårast för Bubble Sort?
 
 Bubble Sort hade svårast med att talen var i rätt ordning men omvända. Det är då det behövde skicka talen så långt som möjligt varje gång. Bubble sort går ut på att talen ska "flyta upp" till rätt position. Så när talen är i omvänd ordning så är talen lägre närmare slutet. Då måste de transporteras en väldigt lång sträcka till början av listan.
+
+## 5. Hur ökar körtiden när du fördublar listans storlek?
+
+||Random| Few Unique | Semi Sorted | Sorted Reverse |
+|-|-|-|-|--|
+|**Bubble Sort**|8826.9 ms|8106.3 ms|4741.98 ms|11008.9 ms|
+|**Selection Sort**|3947.5 ms|3915.0 ms|3413.4 ms|3645.5 ms|
+|**Insertion Sort**|3823 ms|3562.2 ms|26.1 ms|7314.8 ms|
+|**Python Sort**| 1.6 ms|1.1 ms|0.15 ms|0.08 ms|
+
+***20000 tal, 100 unika tal, 100 slumpmässiga tal, tal mellan 1 och 20000000***\
+***CPU:** 9800x3d, **RAM:** 16 GB 6000 MHZ CL30 DDR5*
+
+När jag dubblar antalet tal som sorteras så ökas tiden i snitt lite under 4 gånger. **Bubble Sort** på helt slumpmässiga tal går från **2316 ms** till **8827 ms** (×3,8), några få unika går från **2106 ms** till **8106 ms** (×3,85), semi-sorterade går från **1224.1 ms** till **4741.98 ms** (×3,88), och omvänd sortering från **2869.5 ms** till **11008.9 ms** (×3,83).
+
+**Selection Sort** går från **1013.0 ms** till **3947.5 ms** (×3,88) för helt slumpmässiga tal, från **1000.3 ms** till **3915.0 ms** (×3,91) för några få unika, semi-sorterade från **851.6 ms** till **3413.4 ms** (×4,01), och omvänd sortering från **938.5 ms** till **3645.5 ms** (×3,88).
+
+**Insertion Sort** ökar från **1002.8 ms** till **3823 ms** (×3,81) för helt slumpmässiga tal, från **968.7 ms** till **3562.2 ms** (×3,68) för några få unika, semi-sorterade från **13.4 ms** till **26.1 ms** (×1,94), och omvänd sortering från **1897.0 ms** till **7314.8 ms** (×3,86).
+
+**Python Sort** går från **0.7 ms** till **1.6 ms** (×2,29) för helt slumpmässiga tal, från **0.5 ms** till **1.1 ms** (×2,20) för några få unika, semi-sorterade från **0.2 ms** till **0.15 ms** (×0,75), och omvänd sortering från **0.04 ms** till **0.08 ms** (×2,00).
+
+I snitt blir förändringsfaktorn för **Bubble Sort**, **Selection Sort** och **Insertion Sort** runt 3,85 med undantag för **Insertion Sort** på **semi-sorterade** tal som låg på **×1,94** vilket var mer likt förändrignsfaktorn för pythons inbyggda sorteringsalgoritm som i snitt låg på **×1,81**.
+
+Jag körde sedan tester på **30000** , **40000** och **50000** element. **30000** var i snitt lite under **×9** föruotm insertion som låg närmare **×7,5**, **40000** var i snitt lite under **×16** förutom Insertion som låg närmare **×13**, **50000** var i snitt lite under **×25**
+
+Det syns då ett väldigt tydligt mönster mellan antal element och förändringsfaktorn på tiderna. När vi dubblade element så blev tiden kvadrerad, när vi tripplade antal element så nio-dubblades tiden, när vi fyr-dubblade antal element så blev tiden sextondubblat och till slut när vi femdubblade elementen så lev tiden tjugiofem gånger mer än från början. Tiden det tar för att sortera elementen följer alltså ett mönster av att den ökningen vi gör på elementen kvadreras för att få förändringsfaktorn.\
+Alla tre av de sorteringsalgoritmerna jag gjorde har samma algoritmisk komplexitet på ***O*(n^2)**. Det betyder att antal steg för att sortera listan är n^2 då *O* blir överflödig när vi når högre n. På grund av den kvadratiska komplexiteten hos dessa algoritmer så blir då tiden den tar kvadrerad. Jämfört med pythons inbyggda sorteringsalgoritm som inte har en komplexitet på n^2 så blir inte förändringsfaktorn där lika stor **(×2 => ×1.81 , ×3 => ×3.5, ×4 => ×4.6, ×5 => ×6.04 )**. Istället är den mycket mer lik förändringen på antal element då den inte har en lika stor tidskomplexitet.
+
+## 6. Hur mycket snabbare är Pythons inbyggda sorteringsalgoritm för listor? Hur funkar den egentligen? 
+
+Pythons inbyggda sorteringslgoritm är mycket snabbare. För mitt orginella test på 10000 element så var den mellan 67 till 71725 gånger snabbare än de jag själv kodade. Jämfört med bubble sort på en omvänd lista så är den signifikant snabbare **0.04 ms** kontra **2870 ms**. Det är på grund av hur den är uppbyggd, pythons egna sorteringsalgoritm kör timesort som kör en blanding av olika algoritmer. Den letar först upp redan delvis sorterade sekvenser i listan och kör insertion sort på dem delarna och sedan kör den merge sort på alltihop. På så sätt lyckas algoritmen får en betydligt mindre komplexitet som i värsta fall bara blir *O*(n log n).
+
 
