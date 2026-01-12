@@ -48,7 +48,7 @@ Idag skrev jag klart min analys och gjorde min merge-sort. Merge-sort var riktig
 
 ## 1. Vilken alogritm var snabbast i de olika fallen?
 
-För helt slumpmässiga tal så var **insertion** sort snabbast (**1003 ms**), för endast några unika tal så var **insertion** sort också snabbast (**969 ms**), för sorterad data med några felplacerade tal så var **insertion** sort snabbast med stor marginal (**13.4 ms**), för omvänd ordning så var **selection** sort snabbast (**939 ms**).
+För helt slumpmässiga tal så var **insertion** sort snabbast (**1003 ms**), för endast några unika tal så var **insertion** sort också snabbast (**969 ms**), för sorterad data med några felplacerade tal så var **insertion** sort snabbast med stor marginal (**13.4 ms**), för omvänd ordning så var **selection** sort snabbast (**939 ms**). För omvänd data så är Insertion Sort så signifikant slöare så det ser ut som att det är något fel med algoritmen då den är ungefär dubbelt så slö som när den kör på andra data typer.
 
 ## 2. Varför fungerar Insertion Sort bra på nästan sorterad data?
 
